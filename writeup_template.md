@@ -16,8 +16,8 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 [image1]: ./pipeline.png
-[image2]: ./training/vehicles/GTI_MiddleClose/image0000.png
-[image3]: ./training/non-vehicles/GTI/image1000.png
+[image2]: ./image0000.png
+[image3]: ./image1000.png
 [image4]: ./car_hog.png
 [image5]: ./non_car_hog.png
 [image6]: ./slide_window.png
