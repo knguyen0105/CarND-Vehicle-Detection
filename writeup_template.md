@@ -129,6 +129,6 @@ I spent most time on
 - choosing the parameters and selecting features for the classifier. Initially, I used all three features, my best result was around 94%. It took me a while until I thought about turning off one or two features. 
 - getting hog subsampling to work correctly. The code provided in the lecture use YCrCb. It tooks me a while to realize that my classifier was trained on RGB. 
 
-I believe my pipleine is like to false at the later stage: filerting false positive. 
+I believe filtering false positive is one of potential weak links in my pipeline. Two parameters to tweak in my implementation are the number of look-back frames and the threshold. In the project, I construct a heatmap from 5 consecutive frame and require a threshold of 4, meaning that a pixel only belongs to a car if it belongs to at least 4 positive detections in 5 frames. If these numbers are high, I will reduce the number of false positive. However the risk is that I will also filter out true positive. If I keep these numbers low, I can detect more car, but also more false positives. 
 
 
