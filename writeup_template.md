@@ -126,8 +126,8 @@ In this function, calculate a heatmap from 5 consecutive frame and construct my 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
 I spent most time on
-- picking the parameter and selecting feature for the classifier. 
-- get sub-sampling to work. 
+- choosing the parameters and selecting features for the classifier. Initially, I used all three features, my best result was around 94%. It took me a while until I thought about turning off one or two features. 
+- getting hog subsampling to work correctly. The code provided in the lecture use YCrCb. It tooks me a while to realize that my classifier was trained on RGB. 
 
 I believe my pipleine is like to false at the later stage: filerting false positive. 
 
