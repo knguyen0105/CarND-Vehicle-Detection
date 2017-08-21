@@ -36,8 +36,6 @@ The goals / steps of this project are the following:
 
 The code is contained in 'Feature extraction and utilities' section of the notebook. Function `get_hog_features`.
 
-The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
-
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
 ![A car image][image2]
@@ -54,9 +52,12 @@ Here is an example using the `YCrCb` color space and HOG parameters of `orientat
 
 ![Hog feature of a non-car image in YCrCb space][image5]
 
-####2. Explain how you settled on your final choice of HOG parameters.
+#### 2. Explain how you settled on your final choice of HOG parameters.
 
-My final parameters for Hog are
+My approach is trying out different parameters until my classifier reaches a good accuracy level. In this project, my classifier has 98% accuracy.
+
+My final parameters for Hog are:
+
 ```python
 color_space = 'YCrCb' # Can be RGB, HSV, LUV, HLS, YUV, YCrCb
 orient = 9
@@ -67,9 +68,9 @@ hog_channel = 'ALL' # Can be 0, 1, 2, or "ALL"
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I trained a linear SVM using two features: hog and spatial. I turned off hist feature. The code is contained in section "Train Classifier".
+I trained a linear SVM using two features: hog and spatial. I turned off hist feature. The code is contained in section "Train Classifier" of the notebook.
 
-My accuracy is around 98%.
+The accuracy is around 98%.
 
 ### Sliding Window Search
 
@@ -100,7 +101,6 @@ I recorded the positions of positive detections in each frame of the video.  Fro
 
 Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
 
-
 The code to filter false positive is contained in the process function
 
 ```python
@@ -119,11 +119,16 @@ heat = apply_threshold(heat,4)
 ```
 In this function, calculate a heatmap from 5 consecutive frame and construct my boxes at threshold of 4.
 
-
 ---
 
 ### Discussion
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+
+I spent most time on
+- picking the parameter and selecting feature for the classifier. 
+- get sub-sampling to work. 
+
+I believe my pipleine is like to false at the later stage: filerting false positive. 
 
 
