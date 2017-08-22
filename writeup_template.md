@@ -78,7 +78,9 @@ The accuracy is around 98%.
 
 I implemented both normal sliding window and hog-subsampling. In the end, I use sub-sampling to detect car and produce the video output. 
 
-The code for normal sliding window is contained in section "Car detection using sliding windows. Not used when creating video". I used three scales for windows: 96x96, 128x128, and 256X256
+The code for normal sliding window is contained in section "Car detection using sliding windows. Not used when creating video". I used three scales for windows: 96x96, 128x128, and 256X256. To be efficient and minimize false positives, I assume that the smaller the window, the further away I expect to detect a car. Therefore, I assign a specific search region for each scale. y_start_stop = [300,500] for 96x96 (farthest), y_start_stop=[400,600] (middle) for 128x128 , y_start_stop=[400,700]) for 256x256 (closest).
+
+I kept `xy_overlap=0.5` as from the lecture. I tried a few smaller values but it doesn't bring noticable improvement to justify the extra search windows. 
 
 ![Detect car using normal sliding window][image6]
 
